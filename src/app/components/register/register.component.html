@@ -1,0 +1,64 @@
+<header>
+    
+    <img src="../../../assets/img/logoipsum-logo-69.svg" alt="">
+    <h1>Dummy app</h1>
+</header>
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="userRegisterForm">
+    <h2>Formulario de registro</h2>
+  <fieldset>
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" />
+    <div
+      class="error"
+      *ngIf="
+        !userRegisterForm.get('username')?.valid &&
+        (userRegisterForm.get('username')?.dirty || submitted)
+      "
+    >
+      Esto esta mal
+    </div>
+  </fieldset>
+  <fieldset>
+    <label for="name">Name</label>
+    <input type="text" id="name" formaction="name" />
+  </fieldset>
+  <fieldset>
+    <label for="age">Age</label>
+    <input type="text" id="age" formaction="age" />
+  </fieldset>
+  <fieldset>
+    <label for="direction">Direction</label>
+    <input type="text" id="direction" formaction="direction" />
+  </fieldset>
+  <fieldset>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+    <div
+      class="error"
+      *ngIf="
+        !userRegisterForm.get('password')?.valid &&
+        (userRegisterForm.get('password')?.dirty || submitted)
+      "
+    >
+      Password mal
+    </div>
+  </fieldset>
+  <fieldset>
+    <label for="passwordRepeat">Repeat your password:</label>
+    <input
+      type="password"
+      id="passwordRepeat"
+      formControlName="passwordRepeat"
+    />
+    <div
+      class="error"
+      *ngIf="
+        !userRegisterForm.get('passwordRepeat')?.valid &&
+        (userRegisterForm.get('passwordRepeat')?.dirty || submitted)
+      "
+    >
+      El password no coincide
+    </div>
+  </fieldset>
+  <button type="submit" [disabled]="!userRegisterForm.valid">Register</button>
+</form>
